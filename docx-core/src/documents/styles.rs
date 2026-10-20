@@ -85,11 +85,7 @@ impl BuildXML for Styles {
             .open_styles()?
             .add_child(&self.doc_defaults)?
             .add_optional_child(
-                &self
-                    .styles
-                    .iter()
-                    .find(|style| style.style_id == "Normal")
-                    .is_none()
+                &(!self.styles.iter().any(|style| style.style_id == "Normal"))
                     .then_some(Style::new("Normal", StyleType::Paragraph).name("Normal")),
             )?
             .add_children(&self.styles)?

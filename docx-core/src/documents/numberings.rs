@@ -38,20 +38,12 @@ impl BuildXML for Numberings {
             .declaration(Some(true))?
             .open_numbering()?
             .add_optional_child(
-                &self
-                    .abstract_nums
-                    .iter()
-                    .find(|a| a.id == 1)
-                    .is_none()
+                &(!self.abstract_nums.iter().any(|a| a.id == 1))
                     .then_some(create_default_numbering()),
             )?
             .add_children(&self.abstract_nums)?
             .add_optional_child(
-                &self
-                    .numberings
-                    .iter()
-                    .find(|n| n.id == 1)
-                    .is_none()
+                &(!self.numberings.iter().any(|n| n.id == 1))
                     .then_some(Numbering::new(1, 1)),
             )?
             .add_children(&self.numberings)?
