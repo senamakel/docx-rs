@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## @0.4.23 (Unreleased)
 
+- Upgrade the DOCX archive dependency to ZIP 9.0.4 and resolve archive entry
+  names through its fallible, path-safe APIs.
 - Support character-unit indents (`w:leftChars` / `w:rightChars` /
   `w:hangingChars` / `w:firstLineChars`, in hundredths of a character) for
   both reading and writing. `Indent` gains `end_chars` and `start_chars` /
